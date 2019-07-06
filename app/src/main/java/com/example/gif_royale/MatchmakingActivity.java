@@ -22,6 +22,9 @@ public class MatchmakingActivity extends AppCompatActivity
         implements Fragment_Create.OnFragmentInteractionListener,
                    Fragment_Join.OnFragmentInteractionListener,
                    Fragment_Rivals.OnFragmentInteractionListener {
+
+    public static String username;
+
     @Override
     public void onAttachFragment(Fragment fragment) {
         if (fragment instanceof Fragment_Create) {
@@ -36,16 +39,20 @@ public class MatchmakingActivity extends AppCompatActivity
             Fragment_Rivals fragment_rivals = (Fragment_Rivals) fragment;
             fragment_rivals.setOnFragmentInteractionListener(this);
         }
-        else
-            return;
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onFragmentInteraction(View view) {
+    }
+
+    @Override
+    public void onUsernameChange(String username) {
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        username = "USER";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matchmaking);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

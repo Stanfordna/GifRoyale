@@ -6,9 +6,24 @@
     tools:context=".ui.main.Fragment_Create">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_hello"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/WelcomeMessage" />
+
+        <EditText
+            android:id="@+id/editText_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_username"
+            android:inputType="textPersonName" />
+    </LinearLayout>
 
 </FrameLayout>
