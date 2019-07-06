@@ -3,4 +3,7 @@
     <string name="tab_text_create">Create</string>
     <string name="tab_text_join">Join</string>
     <string name="tab_text_rivals">Rivals</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
