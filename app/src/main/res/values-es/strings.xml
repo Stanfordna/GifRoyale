@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GIF_ROYALE</string>
+    <string name="tab_text_create">Crear</string>
+    <string name="tab_text_join">Unirse</string>
+    <string name="tab_text_rivals">Rivales</string>
+</resources>
