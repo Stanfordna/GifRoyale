@@ -7,4 +7,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="WelcomeMessage">Hello,</string>
     <string name="hint_username">Choose a new username</string>
+    <string name="Confirm">Confirm</string>
 </resources>

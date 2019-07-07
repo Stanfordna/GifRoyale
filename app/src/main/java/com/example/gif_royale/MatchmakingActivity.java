@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.gif_royale.ui.main.SectionsPagerAdapter;
 
@@ -46,8 +47,9 @@ public class MatchmakingActivity extends AppCompatActivity
     }
 
     @Override
-    public void onUsernameChange(String username) {
-
+    public void onUsernameChange() {
+        TextView helloText = findViewById(R.id.textView_hello);
+        helloText.setText(String.format("%s %s", getString(R.string.WelcomeMessage), username));
     }
 
     @Override

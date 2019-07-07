@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.Fragment_Create">
 
     <!-- TODO: Update blank fragment layout -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,15 +17,41 @@
             android:id="@+id/textView_hello"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/WelcomeMessage" />
+            android:paddingLeft="8dp"
+            android:text="@string/WelcomeMessage"
+            android:textColor="#FFFFFF" />
 
-        <EditText
-            android:id="@+id/editText_username"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editText_username"
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:background="?attr/editTextBackground"
+                android:ems="10"
+                android:hint="@string/hint_username"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/Confirm" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/hint_username"
-            android:inputType="textPersonName" />
+            android:src="@mipmap/ic_launcher" />
+
     </LinearLayout>
 
 </FrameLayout>

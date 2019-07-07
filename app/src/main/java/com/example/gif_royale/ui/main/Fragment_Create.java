@@ -56,9 +56,13 @@ public class Fragment_Create extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment__create, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         TextView helloText = getView().findViewById(R.id.textView_hello);
         helloText.setText(String.format("%s %s", getString(R.string.WelcomeMessage), username));
-        return inflater.inflate(R.layout.fragment__create, container, false);
     }
 
     @Override
@@ -90,6 +94,6 @@ public class Fragment_Create extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(View view);
-        void onUsernameChange(String username);
+        void onUsernameChange();
     }
 }
