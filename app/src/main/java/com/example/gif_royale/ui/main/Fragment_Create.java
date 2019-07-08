@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.example.gif_royale.MatchmakingActivity;
@@ -63,6 +64,9 @@ public class Fragment_Create extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         TextView helloText = getView().findViewById(R.id.textView_hello);
         helloText.setText(String.format("%s %s", getString(R.string.WelcomeMessage), username));
+
+        WebView helloGif = getView().findViewById(R.id.WebView_Create);
+        helloGif.loadUrl("https://media0.giphy.com/media/l0Ex9TrHvtNM5kcus/200w.gif?cid=75b441445d239fa64631317741f03f4e&rid=200w.gif");
     }
 
     @Override
