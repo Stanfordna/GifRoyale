@@ -46,11 +46,10 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <WebView
+            android:id="@+id/WebView_Create"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.example.gif_royale.MatchmakingActivity;
@@ -63,6 +64,12 @@ public class Fragment_Create extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         TextView helloText = getView().findViewById(R.id.textView_hello);
         helloText.setText(String.format("%s %s", getString(R.string.WelcomeMessage), username));
+
+        MatchmakingActivity.hideKeyboardFrom(getContext(), helloText);
+
+        WebView helloGif = getView().findViewById(R.id.WebView_Create);
+        helloGif.getSettings().setJavaScriptEnabled(true);
+        helloGif.loadUrl("https://media2.giphy.com/media/eeZpO7bX9a3HGHcVie/200w.gif?cid=75b441445d23aa636b676256598c1785&rid=200w.gif");
     }
 
     @Override
@@ -81,6 +88,7 @@ public class Fragment_Create extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
