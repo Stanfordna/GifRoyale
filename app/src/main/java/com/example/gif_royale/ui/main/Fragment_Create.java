@@ -65,8 +65,11 @@ public class Fragment_Create extends Fragment {
         TextView helloText = getView().findViewById(R.id.textView_hello);
         helloText.setText(String.format("%s %s", getString(R.string.WelcomeMessage), username));
 
+        MatchmakingActivity.hideKeyboardFrom(getContext(), helloText);
+
         WebView helloGif = getView().findViewById(R.id.WebView_Create);
-        helloGif.loadUrl("https://media0.giphy.com/media/l0Ex9TrHvtNM5kcus/200w.gif?cid=75b441445d239fa64631317741f03f4e&rid=200w.gif");
+        helloGif.getSettings().setJavaScriptEnabled(true);
+        helloGif.loadUrl("https://media2.giphy.com/media/eeZpO7bX9a3HGHcVie/200w.gif?cid=75b441445d23aa636b676256598c1785&rid=200w.gif");
     }
 
     @Override
@@ -85,6 +88,7 @@ public class Fragment_Create extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
