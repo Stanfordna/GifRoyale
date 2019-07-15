@@ -17,7 +17,7 @@ import com.example.gif_royale.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_create, R.string.tab_text_join, R.string.tab_text_rivals};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -27,9 +27,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        switch (position) {
+            case 0:
+                return Fragment_Create.newInstance();
+            case 1:
+                return Fragment_Join.newInstance();
+            case 2:
+                return Fragment_Rivals.newInstance();
+            default:
+                return Fragment_Create.newInstance();
+        }
     }
 
     @Nullable
@@ -40,7 +47,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 2;
+        // Show all the pages
+        return TAB_TITLES.length;
     }
 }

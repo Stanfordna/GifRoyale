@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">Gif_Royale</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="app_name">GIF_ROYALE</string>
+    <string name="tab_text_create">Create</string>
+    <string name="tab_text_join">Join</string>
+    <string name="tab_text_rivals">Rivals</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="WelcomeMessage">Hello,</string>
+    <string name="hint_username">Choose a new username</string>
+    <string name="Confirm">Confirm</string>
 </resources>
