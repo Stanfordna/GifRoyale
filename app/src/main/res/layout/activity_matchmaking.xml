@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#23262C"
+    android:background="@color/Background_deepblue"
     tools:context=".MatchmakingActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -23,7 +23,7 @@
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#A2FA3E"
+            android:textColor="@color/Slime"
             android:textSize="48sp"
             tools:fontFamily="serif" />
 
@@ -31,7 +31,8 @@
             android:id="@+id/TabLayout_Matchmaking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#5C422575">
+            android:background="@color/tabs_purpleish"
+            app:tabIndicatorColor="@color/CrimsonishAccent">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/tabItem_create"
@@ -57,13 +58,7 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="2dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="?attr/editTextBackground" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
