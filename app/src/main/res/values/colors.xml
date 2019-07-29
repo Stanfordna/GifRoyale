@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="Slime">#A2FA3E</color>
+    <color name="Background_deepblue">#23262C</color>
+    <color name="CrimsonishAccent">#D81B60</color>
+    <color name="tabs_purpleish">#AF422575</color>
 </resources>

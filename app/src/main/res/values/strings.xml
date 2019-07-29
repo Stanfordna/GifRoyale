@@ -8,4 +8,5 @@
     <string name="WelcomeMessage">Hello,</string>
     <string name="hint_username">Choose a new username</string>
     <string name="Confirm">Confirm</string>
+    <string name="button_create_group">Host New Match</string>
 </resources>
