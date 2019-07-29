@@ -14,12 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,6 +68,26 @@ public class Fragment_Join extends Fragment {
         super.onCreate(savedInstanceState);
         this.username = MatchmakingActivity.username;
 
+        groups = new ArrayList<>();
+        groups.add(new ArrayList<String>());
+        for (int i = 1; i < 6; ++i) {
+            groups.get(0).add(String.format(Locale.getDefault(), "User %d", i));
+        }
+        groups.add(new ArrayList<String>());
+        for (int i = 6; i < 8; ++i) {
+            groups.get(1).add(String.format(Locale.getDefault(),"User %d", i));
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment__join, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         // get the RecyclerView, a scrolling view which holds the group cards
         recyclerView = getView().findViewById(R.id.RecyclerView_Join);
         recyclerView.setHasFixedSize(true);
@@ -78,15 +100,6 @@ public class Fragment_Join extends Fragment {
         // specify an adapter (See class JoinFragmentAdapter)
         mAdapter = new JoinFragmentAdapter(groups);
         recyclerView.setAdapter(mAdapter);
-
-        groups = new ArrayList<>();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__join, container, false);
     }
 
     @Override
@@ -119,60 +132,5 @@ public class Fragment_Join extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(View view);
-    }
-}
-
-public class JoinFragmentAdapter extends RecyclerView.Adapter<JoinFragmentAdapter.MyViewHolder> {
-    private ArrayList<ArrayList<String>> mDataset;
-
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public LinearLayout linearLayout;
-        public MyViewHolder(LinearLayout v) {
-            super(v);
-            linearLayout = v;
-        }
-    }
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public JoinFragmentAdapter(ArrayList<ArrayList<String>> myDataset) {
-        mDataset = myDataset;
-    }
-
-    // Create new views (invoked by the layout manager)
-    @Override
-    public JoinFragmentAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
-        // create a new view
-        LinearLayout v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.linearLayout_group, parent, false);
-        MyViewHolder vh = new MyViewHolder(v);
-        return vh;
-    }
-
-    // Replace the contents of a view (invoked by the layout manager)
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        ArrayList<String> group = mDataset.get(position);
-        LinearLayout groupLayout = holder.linearLayout;
-        for (String user : group) {
-            CardView card = groupLayout.addView(LayoutInflater.from(groupLayout.getContext())
-                    .inflate(R.layout.cardView_user, groupLayout, false));
-            TextView username = card.addView(LayoutInflater.from(card.getContext())
-                    .inflate(R.layout.textView_card, card, false));
-            username.setText(user);
-        }
-        holder.linearLayout.addView(groupLayout);
-    }
-
-    // Return the size of your dataset (invoked by the layout manager)
-    @Override
-    public int getItemCount() {
-        return mDataset.length;
     }
 }
