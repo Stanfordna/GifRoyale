@@ -4,17 +4,22 @@ import android.annotation.SuppressLint;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.gif_royale.ui.main.SectionsPagerAdapter;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class GifBrowsingActivity extends AppCompatActivity {
+public class GifBrowsingActivity extends AppCompatActivity
+        implements GifFragment.OnFragmentInteractionListener {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -86,6 +91,18 @@ public class GifBrowsingActivity extends AppCompatActivity {
     };
 
     @Override
+    public void onAttachFragment(Fragment fragment) {
+        if (fragment instanceof GifFragment) {
+            GifFragment fragment_browse = (GifFragment) fragment;
+            fragment_browse.setOnFragmentInteractionListener(this);
+        }
+    }
+
+    @Override
+    public void onFragmentInteraction(View view) {
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -93,8 +110,7 @@ public class GifBrowsingActivity extends AppCompatActivity {
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
-        mContentView = findViewById(R.id.fullscreen_content);
-
+        mContentView = findViewById(R.id.view_pager_browsing);
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +124,10 @@ public class GifBrowsingActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.view_pager_browsing);
+        viewPager.setAdapter(sectionsPagerAdapter);
     }
 
     @Override

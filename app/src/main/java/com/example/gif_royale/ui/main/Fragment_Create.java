@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.gif_royale.GifBrowsingActivity;
+import com.example.gif_royale.GifFragment;
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
 
