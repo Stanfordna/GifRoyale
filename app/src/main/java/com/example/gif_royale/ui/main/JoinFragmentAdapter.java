@@ -14,15 +14,15 @@ import com.example.gif_royale.R;
 
 import java.util.ArrayList;
 
-public class JoinFragmentAdapter extends RecyclerView.Adapter<JoinFragmentAdapter.MyViewHolder> {
+public class JoinFragmentAdapter extends RecyclerView.Adapter<JoinFragmentAdapter.TeamListHolder> {
     private ArrayList<ArrayList<String>> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class TeamListHolder extends RecyclerView.ViewHolder {
         public LinearLayout linearLayout;
-        public MyViewHolder(LinearLayout v) {
+        public TeamListHolder(LinearLayout v) {
             super(v);
             linearLayout = v;
         }
@@ -35,18 +35,18 @@ public class JoinFragmentAdapter extends RecyclerView.Adapter<JoinFragmentAdapte
 
     // Create new views (invoked by the layout manager)
     @Override
-    public JoinFragmentAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
+    public JoinFragmentAdapter.TeamListHolder onCreateViewHolder(ViewGroup parent,
                                                                int viewType) {
         // create a new linearLayout to hold a group of users
         LinearLayout v = (LinearLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.join_cards_layout, parent, false);
-        MyViewHolder vh = new MyViewHolder(v);
+        TeamListHolder vh = new TeamListHolder(v);
         return vh;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(TeamListHolder holder, int position) {
         // - get each username in a group
         // - add another card to the group
         ArrayList<String> group = mDataset.get(position);
