@@ -7,4 +7,6 @@
     <color name="Background_deepblue">#23262C</color>
     <color name="CrimsonishAccent">#D81B60</color>
     <color name="tabs_purpleish">#AF422575</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

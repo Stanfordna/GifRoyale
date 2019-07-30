@@ -1,6 +1,7 @@
 package com.example.gif_royale.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gif_royale.GifBrowsingActivity;
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
 
@@ -61,6 +64,20 @@ public class Fragment_Create extends Fragment {
         helloText.setText(String.format("%s %s", getString(R.string.WelcomeMessage), username));
 
         MatchmakingActivity.hideKeyboardFrom(getContext(), helloText);
+
+        Button buttonStart = getView().findViewById(R.id.button_createGame);
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button button = (Button) view;
+                if (button.getText() == getString(R.string.button_create_group)) {
+                    button.setText(getString(R.string.button_start_game));
+                } else {
+                    startActivity(new Intent(getActivity(), GifBrowsingActivity.class));
+                    button.setText(getString(R.string.button_create_group));
+                }
+            }
+        });
 
         WebView helloGif = getView().findViewById(R.id.WebView_Create);
         helloGif.getSettings().setJavaScriptEnabled(true);
