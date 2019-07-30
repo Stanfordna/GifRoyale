@@ -18,6 +18,8 @@
             android:id="@+id/textView_Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scrollbarSize="8dp"
+            android:textSize="32sp"
             android:visibility="invisible" />
     </androidx.cardview.widget.CardView>
 

@@ -5,6 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,9 @@ import android.view.ViewGroup;
 
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +30,10 @@ import com.example.gif_royale.R;
 public class Fragment_Rivals extends Fragment {
     private String username;
     private OnFragmentInteractionListener mListener;
+    private ArrayList<String> players;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener) {
         this.mListener = mListener;
@@ -52,8 +62,11 @@ public class Fragment_Rivals extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        username = MatchmakingActivity.username;
+        this.username = MatchmakingActivity.username;
+        this.players = new ArrayList<>();
+        for (int i = 1; i < 23; ++i) {
+            players.add(String.format(Locale.getDefault(), "User %d", i));
+        }
     }
 
     @Override
@@ -61,6 +74,22 @@ public class Fragment_Rivals extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment__rivals, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        // get the RecyclerView, a scrolling view which holds the group cards
+        recyclerView = getView().findViewById(R.id.RecyclerView_Rivals);
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        // specify an adapter (See class JoinFragmentAdapter)
+        mAdapter = new RivalsFragmentAdapter(players);
+        recyclerView.setAdapter(mAdapter);
     }
 
     @Override
