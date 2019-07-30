@@ -1,6 +1,7 @@
 package com.example.gif_royale.ui.main;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,7 +21,6 @@ public class JoinFragmentAdapter extends RecyclerView.Adapter<JoinFragmentAdapte
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         public LinearLayout linearLayout;
         public MyViewHolder(LinearLayout v) {
             super(v);
@@ -59,6 +59,8 @@ public class JoinFragmentAdapter extends RecyclerView.Adapter<JoinFragmentAdapte
                     .getChildAt(0);
             TextView username = (TextView) card.getChildAt(0);
             username.setText(user);
+            card.setVisibility(View.VISIBLE);
+            username.setVisibility(View.VISIBLE);
         }
     }
 
