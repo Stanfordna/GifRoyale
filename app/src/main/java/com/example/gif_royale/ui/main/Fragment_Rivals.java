@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.gif_royale.GifBrowsingActivity;
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
 
@@ -97,6 +98,8 @@ public class Fragment_Rivals extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+        } else if (context instanceof GifBrowsingActivity){
+            return;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
