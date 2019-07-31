@@ -1,6 +1,7 @@
 package com.example.gif_royale.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gif_royale.GifBrowsingActivity;
+import com.example.gif_royale.GifFragment;
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
 
@@ -62,6 +66,20 @@ public class Fragment_Create extends Fragment {
 
         MatchmakingActivity.hideKeyboardFrom(getContext(), helloText);
 
+        Button buttonStart = getView().findViewById(R.id.button_createGame);
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button button = (Button) view;
+                if (button.getText() == getString(R.string.button_create_group)) {
+                    button.setText(getString(R.string.button_start_game));
+                } else {
+                    startActivity(new Intent(getActivity(), GifBrowsingActivity.class));
+                    button.setText(getString(R.string.button_create_group));
+                }
+            }
+        });
+
         WebView helloGif = getView().findViewById(R.id.WebView_Create);
         helloGif.getSettings().setJavaScriptEnabled(true);
         helloGif.loadUrl("https://media2.giphy.com/media/eeZpO7bX9a3HGHcVie/200w.gif?cid=75b441445d23aa636b676256598c1785&rid=200w.gif");
@@ -72,6 +90,8 @@ public class Fragment_Create extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+        } else if (context instanceof GifBrowsingActivity){
+            return;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

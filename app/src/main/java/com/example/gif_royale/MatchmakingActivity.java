@@ -2,14 +2,11 @@ package com.example.gif_royale;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.gif_royale.ui.main.Fragment_Create;
 import com.example.gif_royale.ui.main.Fragment_Join;
 import com.example.gif_royale.ui.main.Fragment_Rivals;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -61,7 +58,7 @@ public class MatchmakingActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matchmaking);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.view_pager);
+        ViewPager viewPager = findViewById(R.id.view_pager_matchmaking);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.TabLayout_Matchmaking);
         tabs.setupWithViewPager(viewPager);
