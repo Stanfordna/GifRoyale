@@ -12,6 +12,9 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.gif_royale.ui.main.Fragment_Create;
+import com.example.gif_royale.ui.main.Fragment_Join;
+import com.example.gif_royale.ui.main.Fragment_Rivals;
 import com.example.gif_royale.ui.main.SectionsPagerAdapter;
 
 /**
@@ -19,7 +22,10 @@ import com.example.gif_royale.ui.main.SectionsPagerAdapter;
  * status bar and navigation/system bar) with user interaction.
  */
 public class GifBrowsingActivity extends AppCompatActivity
-        implements GifFragment.OnFragmentInteractionListener {
+         implements GifFragment.OnFragmentInteractionListener,
+                    Fragment_Create.OnFragmentInteractionListener,
+                    Fragment_Join.OnFragmentInteractionListener,
+                    Fragment_Rivals.OnFragmentInteractionListener {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -93,8 +99,8 @@ public class GifBrowsingActivity extends AppCompatActivity
     @Override
     public void onAttachFragment(Fragment fragment) {
         if (fragment instanceof GifFragment) {
-            GifFragment fragment_browse = (GifFragment) fragment;
-            fragment_browse.setOnFragmentInteractionListener(this);
+            GifFragment gifFragment = (GifFragment) fragment;
+            gifFragment.setOnFragmentInteractionListener(this);
         }
     }
 
@@ -181,5 +187,9 @@ public class GifBrowsingActivity extends AppCompatActivity
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    public void onUsernameChange() {
     }
 }

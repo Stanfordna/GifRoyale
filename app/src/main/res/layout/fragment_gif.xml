@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout_gif"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".GifFragment">
 
     <WebView
         android:id="@+id/WebView_gif"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     </WebView>
 
