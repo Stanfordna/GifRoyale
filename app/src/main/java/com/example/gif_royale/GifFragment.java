@@ -51,7 +51,7 @@ public class GifFragment extends Fragment {
      **/
 
     // TODO: Rename and change types and number of parameters
-    public static GifFragment newInstance(String param1, String param2) {
+    public static GifFragment newInstance() {
         GifFragment fragment = new GifFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -104,8 +104,6 @@ public class GifFragment extends Fragment {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        currentGif.loadUrl("https://media2.giphy.com/media/eeZpO7bX9a3HGHcVie/200w.gif?cid=75b441445d23aa636b676256598c1785&rid=200w.gif");
     }
 
     @Override

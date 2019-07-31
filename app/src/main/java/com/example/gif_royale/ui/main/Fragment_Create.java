@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gif_royale.Activity_Play;
 import com.example.gif_royale.GifBrowsingActivity;
 import com.example.gif_royale.GifFragment;
 import com.example.gif_royale.MatchmakingActivity;
@@ -74,7 +75,7 @@ public class Fragment_Create extends Fragment {
                 if (button.getText() == getString(R.string.button_create_group)) {
                     button.setText(getString(R.string.button_start_game));
                 } else {
-                    startActivity(new Intent(getActivity(), GifBrowsingActivity.class));
+                    startActivity(new Intent(getActivity(), Activity_Play.class));
                     button.setText(getString(R.string.button_create_group));
                 }
             }
@@ -90,8 +91,6 @@ public class Fragment_Create extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-        } else if (context instanceof GifBrowsingActivity){
-            return;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
