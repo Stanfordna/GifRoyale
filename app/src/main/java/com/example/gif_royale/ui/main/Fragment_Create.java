@@ -19,6 +19,7 @@ import com.example.gif_royale.GifFragment;
 import com.example.gif_royale.MatchmakingActivity;
 import com.example.gif_royale.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the

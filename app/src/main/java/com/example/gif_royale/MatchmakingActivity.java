@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.gif_royale.ui.main.SectionsPagerAdapter;
 
+
 public class MatchmakingActivity extends AppCompatActivity
         implements Fragment_Create.OnFragmentInteractionListener,
                    Fragment_Join.OnFragmentInteractionListener,

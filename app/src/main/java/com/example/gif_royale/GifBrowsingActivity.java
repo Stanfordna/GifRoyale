@@ -17,6 +17,7 @@ import com.example.gif_royale.ui.main.Fragment_Join;
 import com.example.gif_royale.ui.main.Fragment_Rivals;
 import com.example.gif_royale.ui.main.SectionsPagerAdapter;
 
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.

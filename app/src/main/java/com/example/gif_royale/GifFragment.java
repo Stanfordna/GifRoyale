@@ -23,7 +23,6 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the

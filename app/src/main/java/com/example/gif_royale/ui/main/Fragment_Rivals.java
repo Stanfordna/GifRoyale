@@ -20,6 +20,7 @@ import com.example.gif_royale.R;
 import java.util.ArrayList;
 import java.util.Locale;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
